@@ -6,6 +6,39 @@
     <title>Number Converter</title>
 </head>
 <body>
-    <h1>Converting numbers...</h1>
+    <h1>Number Converter</h1>
+    <form id="conversionForm">
+        <label for="conversionType">Conversion Type:</label>
+        <select id="conversionType" name="conversionType">
+            <option value="ctof">Celsius to Fahrenheit</option>
+            <option value="ftoc">Fahrenheit to Celsius</option>
+        </select>
+        <br>
+        <label for="value">Value:</label>
+        <input type="number" id="value" name="value" required>
+        <br>
+        <button type="submit">Convert</button>
+    </form>
+
+    <div id="result"></div>
+
+    <script>
+        const form = document.getElementById('conversionForm');
+        const resultDiv = document.getElementById('result');
+
+        form.addEventListener('submit', async function(event) {
+            event.preventDefault();
+            
+            const formData = new FormData(form);
+            const conversionType = formData.get('conversionType');
+            const value = formData.get('value');
+
+            const response = await fetch(`/${conversionType}?num=${value}`);
+            const data = await response.json();
+
+            const result = conversionType === 'ctof' ? `${data.fahrenheit} °F` : `${data.celsius} °C`;
+            resultDiv.textContent = `Result: ${result}`;
+        });
+    </script>
 </body>
 </html>
