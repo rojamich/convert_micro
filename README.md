@@ -1,49 +1,45 @@
-Number Converter Microservice
+# Number Converter Microservice
 This microservice is used for converting numbers using various formulas.
 
 Repository: https://github.com/rojamich/convert_micro.git
 Deployed: https://convert-micro.onrender.com/
 
-How to Use
+I am using the free service on Render, which may experience a delay of up to one minute while it is redeployed after being inactive for 15 minutes.
 
-Celsius to Fahrenheit Conversion
+## How to Use
+
+Celsius to Fahrenheit Conversion Example
 
 Converts a temperature value from Celsius to Fahrenheit.
 
-Endpoint: /ctof
+**Endpoint:** /ctof
 
-Parameters:
+**Parameters:**
 
-num: The value to be converted from Celsius to Fahrenheit.
+- num: The value to be converted from Celsius to Fahrenheit.
 
-Example Request:
-GET /ctof?num=20
+**Example Request:**
 
-Example Response:
+```javascript
+const inputValue = 20;  // number to be converted
+const conversionType = 'ctof';  // Endpoint is name of formula
+
+const response = await fetch(`https://convert-micro.onrender.com/${conversionType}?num=${inputValue}`);
+const responseData = await response.json();
+
+console.log('Conversion result:', responseData);
+```
+
+**Example Response:**
+
+```javascript
 {
   "fahrenheit": 68
 }
-
-Fahrenheit to Celsius Conversion
-
-Converts a temperature value from Fahrenheit to Celsius.
-
-Endpoint: /ftoc
-
-Parameters:
-
-num: The value to be converted from Fahrenheit to Celsius.
-
-Example Request:
-GET /ftoc?num=68
-
-Example Response:
-{
-  "celsius": 20
-}
+```
 
 
-Project Configuration
+### Project Configuration
 
 Here is the package.json file for this project:
 
