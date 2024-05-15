@@ -3,11 +3,13 @@ const cors = require("cors");
 const path = require("path");
 
 const port = process.env.PORT || 3001;
+
 const app = express();
 app.use(cors());
 
 app.get("/", (req, res) => {res.sendFile(path.join(__dirname, "index.html"))});
 
+// Celsius to Fahrenheit Conversion
 app.get("/ctof", (req, res) => {
   const { num } = req.query;
 
@@ -23,6 +25,7 @@ app.get("/ctof", (req, res) => {
   res.json({ fahrenheit });
 });
 
+// Fahrenheit to Celsius Conversion
 app.get("/ftoc", (req, res) => {
   const { num } = req.query;
 
@@ -38,9 +41,10 @@ app.get("/ftoc", (req, res) => {
   res.json({ celsius });
 });
 
+// Server
 const server = app.listen(port, () => {
   console.log(`Number Converter listening on port ${port}!`);
 });
 
-server.keepAliveTimeout = 120 * 1000;
-server.headersTimeout = 120 * 1000;
+server.keepAliveTimeout = 5 * 60 * 1000;
+server.headersTimeout = 5 * 60 * 1000;
