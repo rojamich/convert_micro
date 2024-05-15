@@ -1,15 +1,62 @@
-# README
+Number Converter Microservice
+This microservice is used for converting numbers using various formulas.
 
-This is the [Express](https://expressjs.com) [Hello world](https://expressjs.com/en/starter/hello-world.html) example on [Render](https://render.com).
+Repository: https://github.com/rojamich/convert_micro.git
+Deployed: https://convert-micro.onrender.com/
 
-The app in this repo is deployed at [https://express.onrender.com](https://express.onrender.com).
+How to Use
+Celsius to Fahrenheit Conversion
+Converts a temperature value from Celsius to Fahrenheit.
 
-## Deployment
+Endpoint: /ctof
 
-See https://render.com/docs/deploy-node-express-app or follow the steps below:
+Parameters:
+num: The value to be converted from Celsius to Fahrenheit.
 
-Create a new web service with the following values:
-  * Build Command: `yarn`
-  * Start Command: `node app.js`
+Example Request:
+GET /ctof?num=20
 
-That's it! Your web service will be live on your Render URL as soon as the build finishes.
+Example Response:
+{
+  "fahrenheit": 68
+}
+
+Fahrenheit to Celsius Conversion
+Converts a temperature value from Fahrenheit to Celsius.
+
+Endpoint: /ftoc
+
+Parameters:
+num: The value to be converted from Fahrenheit to Celsius.
+
+Example Request:
+GET /ftoc?num=68
+
+Example Response:
+{
+  "celsius": 20
+}
+
+Project Configuration
+Here is the package.json file for this project:
+
+{
+  "name": "convert_micro",
+  "version": "1.0.0",
+  "description": "Number Converter Microservice",
+  "main": "app.js",
+  "repository": "https://github.com/rojamich/convert_micro.git",
+  "author": "Michael Rojas",
+  "license": "MIT",
+  "private": false,
+  "scripts": {
+    "start": "node app.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.2"
+  },
+  "engines": {
+    "node": ">=14"
+  }
+}
