@@ -5,12 +5,15 @@ Repository: https://github.com/rojamich/convert_micro.git
 Deployed: https://convert-micro.onrender.com/
 
 How to Use
+
 Celsius to Fahrenheit Conversion
+
 Converts a temperature value from Celsius to Fahrenheit.
 
 Endpoint: /ctof
 
 Parameters:
+
 num: The value to be converted from Celsius to Fahrenheit.
 
 Example Request:
@@ -22,11 +25,13 @@ Example Response:
 }
 
 Fahrenheit to Celsius Conversion
+
 Converts a temperature value from Fahrenheit to Celsius.
 
 Endpoint: /ftoc
 
 Parameters:
+
 num: The value to be converted from Fahrenheit to Celsius.
 
 Example Request:
@@ -37,7 +42,9 @@ Example Response:
   "celsius": 20
 }
 
+
 Project Configuration
+
 Here is the package.json file for this project:
 
 {
