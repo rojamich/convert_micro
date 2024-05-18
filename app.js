@@ -9,6 +9,22 @@ app.use(cors());
 
 app.get("/", (req, res) => {res.sendFile(path.join(__dirname, "index.html"))});
 
+// Mealworms to Buffalos Conversion
+app.get("/mwtobuf", (req, res) => {
+  const { num } = req.query;
+
+  if (!num) {
+    return res.status(400).json({ error: 'The "num" parameter is required.' });
+  }
+
+  const mealworms = parseFloat(num);
+  const buffalos = mealworms * 0.125;
+
+  console.log(`Conversion: ${mealworms} mw to ${buffalos} buffalos`);
+
+  res.json({ buffalos });
+});
+
 // Celsius to Fahrenheit Conversion
 app.get("/ctof", (req, res) => {
   const { num } = req.query;
