@@ -7,6 +7,14 @@ const port = process.env.PORT || 3001;
 const app = express();
 app.use(cors());
 
+app.use(function(req, res, next) {
+  console.log("== New Request");
+  console.log(" -- URL:", req.url);
+  console.log(" -- Method:", req.method);
+  console.log("----------------------------------------------------");
+  next();
+});
+
 app.get("/", (req, res) => {res.sendFile(path.join(__dirname, "index.html"))});
 
 // Mealworms to Buffalos Conversion
