@@ -38,6 +38,7 @@ console.log('Conversion result:', responseData);
 }
 ```
 
+![alt text](UML.png)
 
 ### Project Configuration
 
