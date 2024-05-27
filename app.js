@@ -33,6 +33,21 @@ app.get("/mwtobuf", (req, res) => {
   res.json({ buffalos });
 });
 
+// Miles to dollars Conversion
+app.get("/mtod", (req, res) => {
+  const { miles, rate } = req.query;
+
+  if (!(miles && rate)) {
+    return res.status(400).json({ error: 'The miles and the rate are required.' });
+  }
+
+  const dollars = miles * rate
+
+  console.log(`Conversion: ${miles} miles to ${rate} rate`);
+
+  res.json({ dollars });
+});
+
 // Celsius to Fahrenheit Conversion
 app.get("/ctof", (req, res) => {
   const { num } = req.query;
